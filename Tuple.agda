@@ -9,6 +9,10 @@ open import Relation.Binary.PropositionalEquality hiding ([_])
 
 infixr 5 _∷_
 
+data Tuple {a} : List (Set a) → Set a where
+  [] : Tuple []
+  _∷_ : ∀ {A As} → A → Tuple As → Tuple (A ∷ As)
+
 [_] : ∀ {a} {A : Set a} → A → Tuple (A ∷ [])
 [ x ] = x ∷ []
 
